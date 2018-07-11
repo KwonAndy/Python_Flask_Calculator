@@ -1,0 +1,4 @@
+[submodules "Submod"]
+	url = https://github.com/KwonAndy/Python_Flask_Calculator.git
+[submodule "Submod"]
+	branch = Development
