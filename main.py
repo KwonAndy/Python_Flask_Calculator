@@ -6,7 +6,12 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from model import SavedTotal
 
 app = Flask(__name__)
-app.secret_key = b'd\xe1\xc2\xde\x14\xec\rG;!%b1\xa1\xfb\xb9\xd6O\xcd\xfb\xdc7Q\x8c'
+# app.secret_key = b'd\xe1\xc2\xde\x14\xec\rG;!%b1\xa1\xfb\xb9\xd6O\xcd\xfb\xdc7Q\x8c'
+app.secret_key = os.environ.get('SECRET_KEY').encode()
+
+@app.route('/')
+def home():
+    return redirect(url_for('add'))
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
